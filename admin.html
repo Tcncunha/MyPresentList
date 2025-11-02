@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Gifts - Admin 🎁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-add {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-download {
+            background: #48c774;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .btn-delete-small {
+            background: #ff4757;
+            color: white;
+            padding: 6px 15px;
+            border: none;
+            border-radius: 15px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-delete-small:hover {
+            background: #ee5a6f;
+        }
+
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .item-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+            font-size: 1.1em;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚙️ Manage Gift Ideas</h1>
+            <p class="subtitle">Admin Panel - Add and manage your wishlist</p>
+        </header>
+
+        <div class="section">
+            <div class="alert alert-info">
+                <strong>📝 How it works:</strong> Add items here, then click "Download gifts.js". 
+                Upload the file to your GitHub repository along with index.html!
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>➕ Add New Gift Idea</h2>
+            <form id="giftForm">
+                <div class="form-group">
+                    <label for="itemName">Item Name *</label>
+                    <input type="text" id="itemName" required placeholder="e.g., Polo Shirt">
+                </div>
+                <div class="form-group">
+                    <label for="itemDescription">Description (optional)</label>
+                    <textarea id="itemDescription" placeholder="Add details about the item..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="itemPrice">Price (optional)</label>
+                    <input type="text" id="itemPrice" placeholder="e.g., $50">
+                </div>
+                <div class="form-group">
+                    <label for="itemLink">Link (optional)</label>
+                    <input type="url" id="itemLink" placeholder="https://...">
+                </div>
+                <button type="submit" class="btn btn-add">Add to List</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>📋 Current Items (<span id="itemCount">0</span>)</h2>
+            <div class="button-group" style="margin-bottom: 20px;">
+                <button onclick="downloadGifts()" class="btn btn-download">📥 Download gifts.js</button>
+                <button onclick="loadSampleData()" class="btn" style="background: #3273dc; color: white;">📦 Load Sample Data</button>
+            </div>
+            <div id="itemsList" class="item-list"></div>
+        </div>
+
+        <footer>
+            <p>💜 Made with love</p>
+        </footer>
+    </div>
+
+    <script>
+        let gifts = [];
+
+        function loadSampleData() {
+            if (gifts.length > 0) {
+                if (!confirm('This will replace your current items. Continue?')) return;
+            }
+
+            gifts = [
+                { name: "Polo Shirt", description: "A nice polo shirt for casual occasions", price: "", link: "" },
+                { name: "Steam Gift Card", description: "For buying games on Steam", price: "", link: "https://store.steampowered.com/digitalgiftcards/" },
+                { name: "Lego One Piece (Original)", description: "Official Lego One Piece set", price: "", link: "" },
+                { name: "Electric Scooter", description: "For easy commuting around the city", price: "", link: "" },
+                { name: "BBQ Kit", description: "Complete set for barbecue", price: "", link: "" },
+                { name: "Sweatpants", description: "Comfortable pants for lounging", price: "", link: "" },
+                { name: "Non-Electric Scooter", description: "Manual kick scooter", price: "", link: "" },
+                { name: "3D Hologram Photo Frame (Geek Magic)", description: "Cool 3D holographic display frame", price: "", link: "" },
+                { name: "T-shirts", description: "Casual t-shirts", price: "", link: "" },
+                { name: "Social Socks", description: "Fun and stylish socks", price: "", link: "" },
+                { name: "Funko Pop Luffy Gear 5", description: "One Piece collectible figure", price: "", link: "" },
+                { name: "Gurren Lagann Framed Poster", description: "Poster with quotes 'I Drill to Heaven' or 'Who da Hell do think I'm?'", price: "", link: "" },
+                { name: "Tournament Arc: Build Your Own Sports Anime with Friends!", description: "Fun board/card game about creating sports anime", price: "", link: "" },
+                { name: "Kamen Rider Item", description: "Any Kamen Rider collectible or merchandise", price: "", link: "" },
+                { name: "Socks", description: "Regular comfortable socks", price: "", link: "" }
+            ];
+
+            saveToStorage();
+            renderItems();
+            alert('Sample data loaded! 🎉');
+        }
+
+        function saveToStorage() {
+            localStorage.setItem('gifts', JSON.stringify(gifts));
+        }
+
+        function loadFromStorage() {
+            const stored = localStorage.getItem('gifts');
+            if (stored) {
+                gifts = JSON.parse(stored);
+            }
+        }
+
+        function renderItems() {
+            const container = document.getElementById('itemsList');
+            const countEl = document.getElementById('itemCount');
+            
+            countEl.textContent = gifts.length;
+
+            if (gifts.length === 0) {
+                container.innerHTML = '<div class="empty-state">No items yet. Add your first one above!</div>';
+                return;
+            }
+
+            container.innerHTML = gifts.map((gift, index) => `
+                <div class="item-row">
+                    <span class="item-name">${gift.name}</span>
+                    <button onclick="deleteGift(${index})" class="btn-delete-small">Remove</button>
+                </div>
+            `).join('');
+        }
+
+        function deleteGift(index) {
+            if (confirm('Remove this item?')) {
+                gifts.splice(index, 1);
+                saveToStorage();
+                renderItems();
+            }
+        }
+
+        function escapeString(str) {
+            return str
+                .replace(/\\/g, '\\\\')
+                .replace(/'/g, "\\'")
+                .replace(/"/g, '\\"')
+                .replace(/\n/g, '\\n')
+                .replace(/\r/g, '\\r');
+        }
+
+        function downloadGifts() {
+            if (gifts.length === 0) {
+                alert('No items to download! Add some gifts first.');
+                return;
+            }
+
+            const giftsJson = JSON.stringify(gifts, null, 2);
+            const content = `// Gift list data\nconst GIFTS_DATA = ${giftsJson};\n`;
+
+            const blob = new Blob([content], { type: 'text/javascript' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'gifts.js';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            alert('gifts.js downloaded! 🎉\nNow upload it to GitHub with index.html');
+        }
+
+        document.getElementById('giftForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const newGift = {
+                name: document.getElementById('itemName').value,
+                description: document.getElementById('itemDescription').value,
+                price: document.getElementById('itemPrice').value,
+                link: document.getElementById('itemLink').value
+            };
+
+            gifts.push(newGift);
+            saveToStorage();
+            renderItems();
+
+            this.reset();
+            alert('Gift added! 🎉 Don\'t forget to download gifts.js when done.');
+        });
+
+        loadFromStorage();
+        renderItems();
+    </script>
+</body>
+</html>

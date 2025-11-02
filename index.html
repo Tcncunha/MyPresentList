@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min's Gift Ideas 🎁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .gifts-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .gift-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gift-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .gift-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .gift-title {
+            font-size: 1.5em;
+            color: #333;
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .gift-price {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .gift-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .gift-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .gift-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .gift-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .gift-price {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎁 Gift Ideas for Min</h1>
+            <p class="subtitle">Wishlist - Feel free to check it out!</p>
+        </header>
+
+        <div id="giftsList" class="gifts-list"></div>
+
+        <footer>
+            <p>💜 Made with love</p>
+        </footer>
+    </div>
+
+    <script src="gifts.js"></script>
+    <script>
+        function renderGifts(gifts) {
+            const container = document.getElementById('giftsList');
+            
+            if (!gifts || gifts.length === 0) {
+                container.innerHTML = '<div class="empty-state">No gifts added yet. 🎁</div>';
+                return;
+            }
+
+            container.innerHTML = gifts.map(gift => `
+                <div class="gift-card">
+                    <div class="gift-header">
+                        <div class="gift-title">${gift.name || 'Untitled'}</div>
+                        ${gift.price ? `<div class="gift-price">${gift.price}</div>` : ''}
+                    </div>
+                    ${gift.description ? `<p class="gift-description">${gift.description}</p>` : ''}
+                    ${gift.link ? `<a href="${gift.link}" target="_blank" class="gift-link">View Item →</a>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Load gifts from the gifts.js file
+        if (typeof GIFTS_DATA !== 'undefined') {
+            renderGifts(GIFTS_DATA);
+        } else {
+            document.getElementById('giftsList').innerHTML = 
+                '<div class="empty-state">Error loading gifts. Make sure gifts.js exists! 📄</div>';
+        }
+    </script>
+</body>
+</html>
