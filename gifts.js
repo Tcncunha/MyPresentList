@@ -66,7 +66,7 @@ const GIFTS_DATA = [
     "description": "Regular comfortable socks",
     "price": "",
     "link": "https://www.temu.com/pl/m%C4%99skie-spodenki-sportowe-2-w-1-z-nadrukiem-3d-podw%C3%B3jna-warstwa-du%C5%BCe-kieszenie-sznurek-w--mieszanka-poliestrowa-bia%C5%82o-czerwony-kolorystyka-logo--i-wz%C3%B3r-gwiazd-wygodne-do-uprawiania--i-codziennego-noszenia-stylowe-spodenki-sportowe-trwa%C5%82y-materia%C5%82-g-601100103312957.html?top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2F76121899-b611-4be3-ab27-5842ae999fc7.jpg&spec_id=2001&spec_gallery_id=26405&spec_ids=2001&share_token=zaaOftzbbSdpM9ffnfUcP37OUYFpRg2TQep1Wx6AUsz-9XU20lDAGhS0zz6C1_pWWHei2pTl8CmA_9DItBRXi_KrXLP4clsRPqCwVFG-jtEJk8Zdfwt9oDZ4p1Ob_yIiMTatyuYfJdYC9qV43xP9VlzPKv6aKG307R_jL6YpTgE&_x_vst_scene=adg&_x_ads_sub_channel=shopping&_x_ns_prz_type=-1&_x_ns_sku_id=17594736989685&_x_ns_gid=601100103312957&_x_ads_channel=google&_x_gmc_account=5583656541&_x_login_type=Google&_x_ns_gg_lnk_type=adr&_x_ads_account=1703989576&_x_ads_set=22806166989&_x_ads_id=188437448131&_x_ads_creative_id=765009104387&_x_ns_source=g&_x_ns_gclid=Cj0KCQjwgpzIBhCOARIsABZm7vGqhxohbHazJD5dBwiSma-lPBRv5Rsubknr3SuPjqN5ry01Cwq2LvwaAuOxEALw_wcB&_x_ns_placement=&_x_ns_match_type=&_x_ns_ad_position=&_x_ns_product_id=5583656541-17594736989685&_x_ns_target=&_x_ns_devicemodel=&_x_ns_wbraid=CkwKCAjw35bIBhBFEjwAZPYSd9AA-Qs6xdqIoqqkNK3lVeUK-IaIUjBg0roBMv594D2A0bhkg-TxaCaS01cP_5RBgX8o0puw5I8aAnUR&_x_ns_gbraid=0AAAAAo4mICFHEvAQBhpGYHAe_3_V6PQZR&_x_ns_targetid=pla-2430580960776&refer_page_name=kuiper&refer_page_id=13554_1762112108097_jf8o81gw0l&refer_page_sn=13554&_x_sessn_id=1bdtgrwqjb"
-  }
+  },
   {
     "name": "Funko Pop Luffy Gear 5",
     "description": "One Piece collectible figure",
