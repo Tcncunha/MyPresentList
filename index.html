@@ -1,183 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min's Gift Ideas 🎁</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎉 Gift Wishlist</title>
+  <style>
+    :root {
+      --primary: #6a5acd;
+      --secondary: #7f5af0;
+      --bg: #f7f7fb;
+      --text-dark: #2b2b2b;
+      --text-light: #777;
+      --white: #fff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
 
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-            padding: 20px;
-        }
+    .container {
+      max-width: 900px;
+      width: 100%;
+    }
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeIn 1s ease;
+    }
 
-        .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
+    header h1 {
+      font-size: 2.8em;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
 
-        .gifts-list {
-            display: grid;
-            gap: 20px;
-        }
+    .subtitle {
+      color: var(--text-light);
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
 
-        .gift-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .gifts-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 25px;
+      animation: fadeInUp 0.8s ease;
+    }
 
-        .gift-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
+    .gift-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 25px 25px 30px;
+      box-shadow: 0 8px 20px var(--shadow);
+      transition: all 0.3s ease;
+      position: relative;
+    }
 
-        .gift-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 15px;
-            gap: 15px;
-        }
+    .gift-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
 
-        .gift-title {
-            font-size: 1.5em;
-            color: #333;
-            font-weight: bold;
-            flex: 1;
-        }
+    .gift-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-        .gift-price {
-            background: #667eea;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
+    .gift-title {
+      font-size: 1.3em;
+      font-weight: 700;
+      color: var(--text-dark);
+      flex: 1;
+    }
 
-        .gift-description {
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
+    .gift-price {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 6px 15px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 0.9em;
+      white-space: nowrap;
+    }
 
-        .gift-link {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
+    .gift-description {
+      color: var(--text-light);
+      font-size: 0.95em;
+      line-height: 1.5em;
+      margin-bottom: 15px;
+    }
 
-        .gift-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
+    .gift-link {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
 
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: white;
-            font-size: 1.2em;
-        }
+    .gift-link:hover {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(102, 90, 240, 0.3);
+    }
 
-        footer {
-            text-align: center;
-            color: white;
-            margin-top: 40px;
-            opacity: 0.8;
-        }
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-light);
+      font-size: 1.2em;
+    }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
+    footer {
+      text-align: center;
+      color: var(--text-light);
+      margin-top: 60px;
+      font-size: 0.9em;
+    }
 
-            .gift-header {
-                flex-direction: column;
-                gap: 10px;
-            }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-            .gift-price {
-                align-self: flex-start;
-            }
-        }
-    </style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎁 Gift Ideas for Min</h1>
-            <p class="subtitle">Wishlist - Feel free to check it out!</p>
-        </header>
+  <div class="container">
+    <header>
+      <h1>💻 Gift Wishlist 💻</h1>
+      <p class="subtitle">Suggestion by to make life easy 😁 </p>
+    </header>
 
-        <div id="giftsList" class="gifts-list"></div>
+    <div id="giftsList" class="gifts-list"></div>
 
-        <footer>
-            <p>💜 Made with love</p>
-        </footer>
-    </div>
+    <footer>
+      <p>💜 Made with love — 2025 - By Thiago Cunha</p>
+    </footer>
+  </div>
 
-    <script src="gifts.js"></script>
-    <script>
-        function renderGifts(gifts) {
-            const container = document.getElementById('giftsList');
-            
-            if (!gifts || gifts.length === 0) {
-                container.innerHTML = '<div class="empty-state">No gifts added yet. 🎁</div>';
-                return;
-            }
+  <script src="gifts.js"></script>
+  <script>
+    function renderGifts(gifts) {
+      const container = document.getElementById('giftsList');
 
-            container.innerHTML = gifts.map(gift => `
-                <div class="gift-card">
-                    <div class="gift-header">
-                        <div class="gift-title">${gift.name || 'Untitled'}</div>
-                        ${gift.price ? `<div class="gift-price">${gift.price}</div>` : ''}
-                    </div>
-                    ${gift.description ? `<p class="gift-description">${gift.description}</p>` : ''}
-                    ${gift.link ? `<a href="${gift.link}" target="_blank" class="gift-link">View Item →</a>` : ''}
-                </div>
-            `).join('');
-        }
+      if (!gifts || gifts.length === 0) {
+        container.innerHTML = '<div class="empty-state">No gifts added yet. 🎁</div>';
+        return;
+      }
 
-        // Load gifts from the gifts.js file
-        if (typeof GIFTS_DATA !== 'undefined') {
-            renderGifts(GIFTS_DATA);
-        } else {
-            document.getElementById('giftsList').innerHTML = 
-                '<div class="empty-state">Error loading gifts. Make sure gifts.js exists! 📄</div>';
-        }
-    </script>
+      container.innerHTML = gifts
+        .map(
+          (gift) => `
+        <div class="gift-card">
+          <div class="gift-header">
+            <div class="gift-title">${gift.name || "Untitled"}</div>
+            ${gift.price ? `<div class="gift-price">${gift.price}</div>` : ""}
+          </div>
+          ${
+            gift.description
+              ? `<p class="gift-description">${gift.description}</p>`
+              : ""
+          }
+          ${
+            gift.link
+              ? `<a href="${gift.link}" target="_blank" class="gift-link">View item →</a>`
+              : ""
+          }
+        </div>`
+        )
+        .join("");
+    }
+
+    if (typeof GIFTS_DATA !== "undefined") {
+      renderGifts(GIFTS_DATA);
+    } else {
+      document.getElementById("giftsList").innerHTML =
+        '<div class="empty-state">Error loading gifts. Make sure gifts.js exists! 📄</div>';
+    }
+  </script>
 </body>
 </html>
