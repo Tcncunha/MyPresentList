@@ -81,12 +81,12 @@ const GIFTS_DATA = [
     "name": "Kamen Rider Item",
     "description": "Any Kamen Rider collectible or merchandise",
     "price": "",
-    "link": ""
+    "link": "https://www.aliexpress.com/p/tesla-landing/index.html?scenario=c_ppc_item_bridge&productId=1005007307349222"
   },
   {
     "name": "Socks",
     "description": "Regular comfortable socks",
     "price": "",
-    "link": "https://www.aliexpress.com/p/tesla-landing/index.html?scenario=c_ppc_item_bridge&productId=1005007307349222"
+    "link": ""
   }
 ];
