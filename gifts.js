@@ -95,4 +95,11 @@ const GIFTS_DATA = [
     "price": "",
     "link": ""
   }
+  ,
+  {
+    "name": "Otamatone",
+    "description": "Because it's annoying (to the others)",
+    "price": "27  to 140",
+    "link": "https://allegro.pl/oferta/otamatone-classic-bialy-17258417397?utm_feed=aa34192d-eee2-4419-9a9a-de66b9dfae24&utm_source=google&utm_medium=cpc&utm_campaign=_krk_media_pla_ss&ev_adgr=media%201&ev_campaign_id=22982903938&gad_source=1&gad_campaignid=22982903938&gbraid=0AAAAAD24kbNemvAgWtGS_HGg8N2T9wkmh&gclid=Cj0KCQiAq7HIBhDoARIsAOATDxA_RJuIs6lEZTeMUh5y6uPzXIRk261FhFtJD-1d_sUNHS0qEH89DGwaAoslEALw_wcB"
+  }
 ];
